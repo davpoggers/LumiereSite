@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Detalhes do produto – Lumière Hair & Beauty. Cosméticos originais da Lola Cosmetics.">
+  <title>Produto | Lumière Hair & Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html"><img src="logo.png" alt="Lumière Hair & Beauty" class="navbar-logo"></a>
+    <ul class="navbar-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="products.html" class="active">Produtos</a></li>
+      <li><a href="index.html#sobre">Sobre</a></li>
+      <li><a href="index.html#contato">Contato</a></li>
+    </ul>
+    <div class="navbar-actions">
+      <button class="cart-btn" onclick="window.location.href='cart.html'" aria-label="Ver carrinho" id="cart-nav-btn">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Início</a>
+    <a href="products.html">Produtos</a>
+    <a href="index.html#sobre">Sobre</a>
+    <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i> Carrinho</a>
+  </div>
+
+  <main class="product-detail-page">
+
+    <!-- BREADCRUMB -->
+    <div class="product-breadcrumb">
+      <div class="container">
+        <nav aria-label="Breadcrumb" class="breadcrumb">
+          <a href="index.html">Início</a>
+          <i class="fa-solid fa-chevron-right"></i>
+          <a href="products.html">Produtos</a>
+          <i class="fa-solid fa-chevron-right"></i>
+          <span id="breadcrumb-product-name">Carregando...</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- PRODUCT DETAILS -->
+    <section class="product-detail-section">
+      <div class="container">
+        <div class="product-detail-grid" id="product-detail-content">
+          <!-- Populated by JS -->
+          <div class="detail-skeleton" aria-label="Carregando produto">
+            <div class="skeleton-img"></div>
+            <div class="skeleton-text">
+              <div class="skeleton-line w40"></div>
+              <div class="skeleton-line w70"></div>
+              <div class="skeleton-line w30"></div>
+              <div class="skeleton-line w100"></div>
+              <div class="skeleton-line w100"></div>
+              <div class="skeleton-line w60"></div>
+              <div class="skeleton-line w50"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUTOS RELACIONADOS -->
+    <section class="related-section">
+      <div class="container">
+        <div style="margin-bottom: 36px;">
+          <span class="section-tag"><i class="fa-solid fa-star"></i> Você também pode gostar</span>
+          <h2 class="section-title">Produtos <strong>relacionados</strong></h2>
+        </div>
+        <div class="products-grid" id="related-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Lumière Hair & Beauty" class="footer-brand-logo">
+        <p>Cosméticos originais com preços acessíveis para todos os públicos.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Navegação</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="products.html">Produtos</a></li>
+          <li><a href="cart.html">Carrinho</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Suporte</p>
+        <ul class="footer-links">
+          <li><a href="mailto:contato@lumierehair.com.br">E-mail</a></li>
+          <li><a href="tel:+5511999999999">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lumière Hair & Beauty. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <div id="toast-container" role="alert" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+  <script>
+    const PRODUCTS_DB = {
+      1: {
+        id: 1, brand: 'Lola Cosmetics', name: 'Meu Cacho Minha Vida – Kit Completo',
+        tagline: 'Hidratação e definição para cachos e ondas',
+        desc: 'O kit Meu Cacho Minha Vida da Lola Cosmetics é a solução completa para quem sofre com porosidade e ressecamento. Formulado com ingredientes naturais que respeitam a estrutura dos fios, este kit une shampoo, condicionador e máscara de tratamento para proporcionar hidratação profunda, definição e brilho aos seus cachos.',
+        price: 151.90, originalPrice: 189.90, discount: 20,
+        img: 'produto_cacho.png', category: 'cacho',
+        benefits: ['Hidratação profunda', 'Definição de cachos', 'Controle do frizz', 'Brilho intenso', 'Redução da porosidade'],
+        includes: ['Shampoo Meu Cacho Minha Vida 250ml', 'Condicionador Meu Cacho Minha Vida 300ml', 'Máscara de Tratamento 385g'],
+        rating: 4.9, reviews: 128, stock: 24,
+        tags: ['cabelos cacheados', 'ondulados', 'porosidade', 'ressecamento']
+      },
+      2: {
+        id: 2, brand: 'Lola Cosmetics', name: 'Danos Vorazes – Kit Tratamento',
+        tagline: 'Reconstrução intensiva pós-química',
+        desc: 'A linha Danos Vorazes da Lola Cosmetics foi desenvolvida especialmente para quem passou por processos químicos como coloração, alisamento ou permanente. Com ativos reparadores de alta tecnologia, este kit reconstrói o interior do fio, restaura a elasticidade e proporciona maciez e brilho incomparáveis.',
+        price: 159.90, originalPrice: 199.90, discount: 20,
+        img: 'produto_danos.png', category: 'quimica',
+        benefits: ['Reconstrução do fio', 'Restaura elasticidade', 'Anti-quebra', 'Nutrição profunda', 'Reduz pontas duplas'],
+        includes: ['Shampoo Danos Vorazes 250ml', 'Condicionador Danos Vorazes 300ml', 'Máscara Danos Vorazes 385g'],
+        rating: 4.8, reviews: 96, stock: 18,
+        tags: ['pós-química', 'coloração', 'alisamento', 'cabelo danificado']
+      },
+      3: {
+        id: 3, brand: 'Lumière Exclusivo', name: 'Kit Lumière Premium',
+        tagline: 'Rotina capilar completa e luxuosa',
+        desc: 'O Kit Lumière Premium é uma curadoria especial da nossa equipe com os melhores produtos para uma rotina capilar completa. Inclui produtos das linhas mais vendidas da Lola Cosmetics, selecionados para proporcionar hidratação, nutrição e brilho em um único kit exclusivo.',
+        price: 279.90, originalPrice: 349.90, discount: 20,
+        img: 'kit_promocional.png', category: 'kit',
+        benefits: ['Rotina completa', 'Hidratação', 'Nutrição', 'Reconstrução', 'Finalização'],
+        includes: ['Shampoo Meu Cacho Minha Vida 250ml', 'Condicionador Danos Vorazes 300ml', 'Máscara Meu Cacho 385g', 'Leave-in finalizador 200ml', 'Embalagem exclusiva Lumière'],
+        rating: 5.0, reviews: 42, stock: 10,
+        tags: ['kit completo', 'presente', 'rotina capilar', 'luxo acessível']
+      },
+      4: {
+        id: 4, brand: 'Lola Cosmetics', name: 'Shampoo Meu Cacho Minha Vida',
+        tagline: 'Limpeza suave que respeita os cachos',
+        desc: 'O Shampoo Meu Cacho Minha Vida da Lola Cosmetics limpa os fios com delicadeza, sem remover os óleos naturais essenciais para a saúde dos cachos. Enriquecido com manteiga de karité e proteínas vegetais.',
+        price: 69.90, originalPrice: null, discount: 0,
+        img: 'produto_cacho.png', category: 'cacho',
+        benefits: ['Limpeza suave', 'Mantém óleos naturais', 'Cachos definidos', 'Sem sulfatos agressivos'],
+        includes: ['Shampoo 250ml'],
+        rating: 4.7, reviews: 215, stock: 50,
+        tags: ['shampoo', 'cachos', 'low poo', 'sem sulfato']
+      },
+      5: {
+        id: 5, brand: 'Lola Cosmetics', name: 'Condicionador Meu Cacho Minha Vida',
+        tagline: 'Amacia, define e controla o frizz',
+        desc: 'O Condicionador Meu Cacho Minha Vida amacia e desembaraça os fios com facilidade, enquanto define os cachos e controla o frizz. Fórmula rica em ativos hidratantes e umectantes para cachos sempre lindos.',
+        price: 75.90, originalPrice: null, discount: 0,
+        img: 'produto_cacho.png', category: 'cacho',
+        benefits: ['Desembaraça fácil', 'Define cachos', 'Controla frizz', 'Hidratação duradoura'],
+        includes: ['Condicionador 300ml'],
+        rating: 4.8, reviews: 180, stock: 45,
+        tags: ['condicionador', 'cachos', 'ondulados', 'frizz']
+      },
+      6: {
+        id: 6, brand: 'Lola Cosmetics', name: 'Máscara Danos Vorazes',
+        tagline: 'Tratamento intensivo pós-química',
+        desc: 'A Máscara Danos Vorazes é o tratamento mais intenso da linha para reparação de fios altamente danificados. Seu complexo de proteínas penetra no interior do fio, restaurando a estrutura de dentro para fora.',
+        price: 89.90, originalPrice: null, discount: 0,
+        img: 'produto_danos.png', category: 'quimica',
+        benefits: ['Reparação intensa', 'Reconstrução do córtex', 'Maciez extrema', 'Reduz porosidade', 'Brilho espelhado'],
+        includes: ['Máscara de tratamento 385g'],
+        rating: 4.9, reviews: 143, stock: 32,
+        tags: ['máscara', 'pós-química', 'reconstrução', 'tratamento intensivo']
+      },
+      7: {
+        id: 7, brand: 'Lola Cosmetics', name: 'Shampoo Danos Vorazes',
+        tagline: 'Limpeza com ativos reparadores',
+        desc: 'O Shampoo Danos Vorazes prepara o fio para o tratamento pós-química com uma limpeza suave que inclui ativos reparadores. Remove impurezas sem agredir os fios já fragilizados.',
+        price: 72.90, originalPrice: null, discount: 0,
+        img: 'produto_danos.png', category: 'quimica',
+        benefits: ['Limpeza gentil', 'Ativos reparadores', 'Prepara para tratamento', 'Sem agressão'],
+        includes: ['Shampoo 250ml'],
+        rating: 4.7, reviews: 98, stock: 40,
+        tags: ['shampoo', 'pós-química', 'fio danificado', 'restauração']
+      },
+      8: {
+        id: 8, brand: 'Lumière Exclusivo', name: 'Kit Econômico Duo',
+        tagline: 'O essencial para o seu cabelo',
+        desc: 'O Kit Econômico Duo reúne shampoo e condicionador de uma das linhas Lola à sua escolha — Meu Cacho Minha Vida ou Danos Vorazes. Ideal para quem quer começar a cuidar do cabelo sem gastar muito.',
+        price: 139.80, originalPrice: 174.80, discount: 20,
+        img: 'kit_promocional.png', category: 'kit',
+        benefits: ['Custo-benefício', 'Linha à escolha', 'Prático', 'Dupla ação'],
+        includes: ['Shampoo Lola 250ml (à escolha)', 'Condicionador Lola 300ml (à escolha)'],
+        rating: 4.6, reviews: 67, stock: 28,
+        tags: ['kit', 'econômico', 'shampoo', 'condicionador']
+      }
+    };
+
+    function renderProduct() {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get('id')) || 1;
+      const p = PRODUCTS_DB[id];
+      if (!p) return;
+
+      document.title = `${p.name} | Lumière Hair & Beauty`;
+      document.getElementById('breadcrumb-product-name').textContent = p.name;
+
+      const saveAmt = p.originalPrice ? (p.originalPrice - p.price).toFixed(2) : null;
+
+      document.getElementById('product-detail-content').innerHTML = `
+        <div class="detail-gallery">
+          <div class="gallery-main">
+            <img src="${p.img}" alt="${p.name}" id="main-product-img">
+            ${p.discount > 0 ? `<div class="gallery-badge"><span class="product-card-badge badge-promo">${p.discount}% OFF</span></div>` : ''}
+          </div>
+          <div class="gallery-thumbs">
+            <button class="thumb active" onclick="changeImg(this, '${p.img}')" aria-label="Ver imagem principal">
+              <img src="${p.img}" alt="${p.name}">
+            </button>
+            <button class="thumb" onclick="changeImg(this, '${p.img}')" aria-label="Ver imagem do produto">
+              <img src="${p.img}" alt="${p.name}" style="filter: brightness(1.1) saturate(0.8);">
+            </button>
+            <button class="thumb" onclick="changeImg(this, '${p.img}')" aria-label="Ver detalhe do produto">
+              <img src="${p.img}" alt="${p.name}" style="filter: brightness(0.9) contrast(1.1);">
+            </button>
+          </div>
+        </div>
+
+        <div class="detail-info">
+          <p class="detail-brand"><i class="fa-solid fa-certificate"></i> ${p.brand} — Original</p>
+          <h1 class="detail-name">${p.name}</h1>
+          <p class="detail-tagline">${p.tagline}</p>
+
+          <div class="detail-rating">
+            <div class="rating-stars" role="img" aria-label="${p.rating} estrelas de 5">
+              ${'<i class="fa-solid fa-star"></i>'.repeat(Math.floor(p.rating))}
+              ${p.rating % 1 ? '<i class="fa-solid fa-star-half-stroke"></i>' : ''}
+            </div>
+            <span class="rating-num">${p.rating}</span>
+            <span class="rating-count">(${p.reviews} avaliações)</span>
+          </div>
+
+          <div class="detail-price-group">
+            ${p.originalPrice ? `<span class="price-original">R$ ${p.originalPrice.toFixed(2).replace('.', ',')}</span>` : ''}
+            <span class="price-current">R$ ${p.price.toFixed(2).replace('.', ',')}</span>
+            ${saveAmt ? `<span class="price-save">Você economiza R$ ${parseFloat(saveAmt).toFixed(2).replace('.', ',')}</span>` : ''}
+          </div>
+
+          <p class="detail-desc">${p.desc}</p>
+
+          <div class="detail-includes">
+            <h3><i class="fa-solid fa-box"></i> O kit inclui</h3>
+            <ul>
+              ${p.includes.map(inc => `<li><i class="fa-solid fa-check"></i> ${inc}</li>`).join('')}
+            </ul>
+          </div>
+
+          <div class="detail-benefits">
+            <h3><i class="fa-solid fa-sparkles"></i> Benefícios</h3>
+            <div class="benefits-grid">
+              ${p.benefits.map(b => `<span class="benefit-tag">${b}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="detail-qty-row">
+            <div class="qty-selector" role="group" aria-label="Quantidade">
+              <button class="qty-btn" id="qty-minus" onclick="changeQty(-1)" aria-label="Diminuir quantidade">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <input type="number" class="qty-input" id="qty-input" value="1" min="1" max="${p.stock}" readonly aria-label="Quantidade">
+              <button class="qty-btn" id="qty-plus" onclick="changeQty(1)" aria-label="Aumentar quantidade">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+            <span class="stock-info"><i class="fa-solid fa-circle-check"></i> ${p.stock} em estoque</span>
+          </div>
+
+          <div class="detail-actions">
+            <button class="btn-primary" id="add-to-cart-btn" style="flex:1;"
+              onclick="addProductToCart(${JSON.stringify(p).replace(/"/g, '&quot;')})">
+              <i class="fa-solid fa-bag-shopping"></i> Adicionar ao Carrinho
+            </button>
+            <button class="btn-secondary" id="buy-now-btn"
+              onclick="buyNow(${JSON.stringify(p).replace(/"/g, '&quot;')})">
+              Comprar Agora
+            </button>
+          </div>
+
+          <div class="detail-chips">
+            <span class="chip"><i class="fa-solid fa-shield-check"></i> Original garantido</span>
+            <span class="chip"><i class="fa-solid fa-truck"></i> Frete grátis acima R$150</span>
+            <span class="chip"><i class="fa-solid fa-rotate-left"></i> Troca em 30 dias</span>
+          </div>
+        </div>
+      `;
+
+      // Related products
+      const related = Object.values(PRODUCTS_DB).filter(q => q.id !== id).slice(0, 3);
+      document.getElementById('related-grid').innerHTML = related.map(q => `
+        <article class="product-card" id="related-${q.id}">
+          ${q.discount > 0 ? '<span class="product-card-badge badge-promo">' + q.discount + '% OFF</span>' : ''}
+          <div style="overflow:hidden;">
+            <img src="${q.img}" alt="${q.name}" class="product-card-img">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-brand">${q.brand}</p>
+            <h3 class="product-card-name">${q.name}</h3>
+            <p class="product-card-desc">${q.tagline}</p>
+            <div class="product-card-footer">
+              <div class="price-group">
+                ${q.originalPrice ? `<span class="price-original">R$ ${q.originalPrice.toFixed(2).replace('.', ',')}</span>` : ''}
+                <span class="price-current">R$ ${q.price.toFixed(2).replace('.', ',')}</span>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <a href="product.html?id=${q.id}" class="btn-icon" aria-label="Ver detalhes de ${q.name}"><i class="fa-solid fa-eye"></i></a>
+                <button class="btn-icon" aria-label="Adicionar ao carrinho"
+                  onclick="addToCart({id:${q.id}, name:'${q.name}', brand:'${q.brand}', price:${q.price}, img:'${q.img}'})">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function changeImg(btn, src) {
+      document.getElementById('main-product-img').src = src;
+      document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function changeQty(delta) {
+      const input = document.getElementById('qty-input');
+      const val = parseInt(input.value) + delta;
+      if (val < 1 || val > parseInt(input.max)) return;
+      input.value = val;
+    }
+
+    function addProductToCart(product) {
+      const qty = parseInt(document.getElementById('qty-input').value);
+      for (let i = 0; i < qty; i++) {
+        addToCart({ id: product.id, name: product.name, brand: product.brand, price: product.price, img: product.img });
+      }
+    }
+
+    function buyNow(product) {
+      addProductToCart(product);
+      window.location.href = 'cart.html';
+    }
+
+    renderProduct();
+  </script>
+</body>
+
+</html>

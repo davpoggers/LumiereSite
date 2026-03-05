@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Carrinho de compras – Lumière Hair & Beauty. Finalize sua compra de cosméticos originais.">
+  <title>Carrinho | Lumière Hair & Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html"><img src="logo.png" alt="Lumière Hair & Beauty" class="navbar-logo"></a>
+    <ul class="navbar-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="products.html">Produtos</a></li>
+      <li><a href="index.html#sobre">Sobre</a></li>
+      <li><a href="index.html#contato">Contato</a></li>
+    </ul>
+    <div class="navbar-actions">
+      <button class="cart-btn" onclick="window.location.href='cart.html'" aria-label="Ver carrinho" id="cart-nav-btn">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Início</a>
+    <a href="products.html">Produtos</a>
+    <a href="index.html#sobre">Sobre</a>
+    <a href="cart.html" class="active"><i class="fa-solid fa-bag-shopping"></i> Carrinho</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="cart-page-header">
+    <div class="container">
+      <div class="cart-header-inner">
+        <div>
+          <h1 class="section-title">Meu <strong>Carrinho</strong></h1>
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Início</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Carrinho</span>
+          </nav>
+        </div>
+        <a href="products.html" class="btn-secondary" id="continue-shopping-top">
+          <i class="fa-solid fa-arrow-left"></i> Continuar Comprando
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CART CONTENT -->
+  <main class="cart-main">
+    <div class="container">
+
+      <!-- EMPTY CART -->
+      <div class="cart-empty" id="cart-empty" style="display:none;">
+        <div class="cart-empty-icon" aria-hidden="true">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <h2>Seu carrinho está vazio</h2>
+        <p>Adicione produtos incríveis para começar sua compra.</p>
+        <a href="products.html" class="btn-primary" id="go-to-products">
+          <i class="fa-solid fa-sparkles"></i> Explorar Produtos
+        </a>
+      </div>
+
+      <!-- CART WITH ITEMS -->
+      <div class="cart-layout" id="cart-layout">
+        <!-- ITEMS -->
+        <div class="cart-items-col">
+          <div class="cart-items-header">
+            <h2>Itens do Carrinho <span id="items-count">(0)</span></h2>
+            <button class="clear-cart-btn" id="clear-cart-btn" onclick="clearCart()">
+              <i class="fa-solid fa-trash"></i> Limpar Carrinho
+            </button>
+          </div>
+          <div id="cart-items-list" role="list" aria-label="Itens no carrinho">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- SUMMARY -->
+        <aside class="cart-summary-col" aria-label="Resumo do pedido">
+          <div class="cart-summary-card">
+            <h2 class="summary-title"><i class="fa-solid fa-receipt"></i> Resumo do Pedido</h2>
+
+            <div class="summary-lines">
+              <div class="summary-line">
+                <span>Subtotal</span>
+                <span id="summary-subtotal">R$ 0,00</span>
+              </div>
+              <div class="summary-line">
+                <span>Desconto aplicado</span>
+                <span id="summary-discount" class="discount-val">– R$ 0,00</span>
+              </div>
+              <div class="summary-line">
+                <span>Frete</span>
+                <span id="summary-shipping" class="shipping-val">Calcular</span>
+              </div>
+            </div>
+
+            <!-- FRETE CALCULATOR -->
+            <div class="shipping-calc">
+              <input type="text" id="cep-input" placeholder="Calcular frete – CEP" maxlength="9"
+                aria-label="CEP para cálculo de frete">
+              <button id="calc-frete-btn" onclick="calcFrete()" aria-label="Calcular frete">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+
+            <div class="summary-total">
+              <span>Total</span>
+              <span id="summary-total">R$ 0,00</span>
+            </div>
+
+            <!-- CUPOM -->
+            <div class="coupon-row">
+              <input type="text" id="coupon-input" placeholder="Código de cupom" aria-label="Código de cupom">
+              <button id="apply-coupon-btn" onclick="applyCoupon()" aria-label="Aplicar cupom">
+                Aplicar
+              </button>
+            </div>
+            <div id="coupon-msg" class="coupon-msg" aria-live="polite"></div>
+
+            <button class="btn-primary checkout-btn" id="checkout-btn" onclick="checkout()"
+              style="width:100%; justify-content:center;">
+              <i class="fa-solid fa-lock"></i> Finalizar Compra
+            </button>
+
+            <div class="summary-guarantee">
+              <i class="fa-solid fa-shield-check"></i>
+              <span>Compra 100% segura. Produtos originais garantidos.</span>
+            </div>
+
+            <div class="payment-methods" aria-label="Formas de pagamento aceitas">
+              <p class="pay-label">Formas de pagamento</p>
+              <div class="pay-icons">
+                <span title="Pix"><i class="fa-brands fa-pix"></i> Pix</span>
+                <span title="Boleto"><i class="fa-solid fa-barcode"></i> Boleto</span>
+                <span title="Cartão de crédito"><i class="fa-solid fa-credit-card"></i> Crédito</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- MODAL CHECKOUT -->
+  <div class="checkout-modal" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"
+    style="display:none;">
+    <div class="modal-backdrop" onclick="closeModal()"></div>
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-icon" aria-hidden="true"><i class="fa-solid fa-lock"></i></div>
+      <h2 id="modal-title">Finalizar Compra</h2>
+      <p>Esta é uma loja demonstrativa. Em produção, você seria direcionado para um gateway de pagamento seguro.</p>
+      <div class="modal-order-summary">
+        <div class="modal-sum-line">
+          <span>Total do pedido</span>
+          <span id="modal-total" class="modal-total-val">R$ 0,00</span>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-primary" id="confirm-purchase-btn" onclick="confirmPurchase()"
+          style="flex:1; justify-content:center;">
+          <i class="fa-solid fa-check"></i> Confirmar Pedido
+        </button>
+        <button class="btn-secondary" onclick="closeModal()" id="cancel-purchase-btn">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Lumière Hair & Beauty" class="footer-brand-logo">
+        <p>Cosméticos originais com preços acessíveis para todos os públicos.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Navegação</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="products.html">Produtos</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Suporte</p>
+        <ul class="footer-links">
+          <li><a href="mailto:contato@lumierehair.com.br">E-mail</a></li>
+          <li><a href="tel:+5511999999999">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lumière Hair & Beauty. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <div id="toast-container" role="alert" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+  <script>
+    let couponApplied = false;
+    let freteValue = null;
+
+    function renderCartPage() {
+      const cart = getCart();
+      const empty = document.getElementById('cart-empty');
+      const layout = document.getElementById('cart-layout');
+
+      if (cart.length === 0) {
+        empty.style.display = 'flex';
+        layout.style.display = 'none';
+        return;
+      }
+
+      empty.style.display = 'none';
+      layout.style.display = 'grid';
+
+      document.getElementById('items-count').textContent = `(${cart.reduce((s, i) => s + i.qty, 0)})`;
+
+      const list = document.getElementById('cart-items-list');
+      list.innerHTML = cart.map(item => `
+        <article class="cart-item" id="cart-item-${item.id}" role="listitem">
+          <a href="product.html?id=${item.id}" class="cart-item-img-wrap" tabindex="-1">
+            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+          </a>
+          <div class="cart-item-info">
+            <p class="cart-item-brand">${item.brand}</p>
+            <h3 class="cart-item-name"><a href="product.html?id=${item.id}">${item.name}</a></h3>
+            <p class="cart-item-unit">Unitário: R$ ${item.price.toFixed(2).replace('.', ',')} </p>
+            <div class="cart-item-actions">
+              <div class="qty-selector" role="group" aria-label="Quantidade de ${item.name}">
+                <button class="qty-btn" onclick="updateQty(${item.id}, -1)" aria-label="Diminuir quantidade">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <input type="number" class="qty-input" value="${item.qty}" min="1" readonly
+                  aria-label="Quantidade: ${item.qty}">
+                <button class="qty-btn" onclick="updateQty(${item.id}, 1)" aria-label="Aumentar quantidade">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+              <button class="remove-btn" onclick="removeItem(${item.id})" aria-label="Remover ${item.name}">
+                <i class="fa-solid fa-trash"></i> Remover
+              </button>
+            </div>
+          </div>
+          <div class="cart-item-price">
+            R$ ${(item.price * item.qty).toFixed(2).replace('.', ',')}
+          </div>
+        </article>
+      `).join('');
+
+      updateSummary();
+    }
+
+    function updateQty(id, delta) {
+      let cart = getCart();
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      item.qty = Math.max(1, item.qty + delta);
+      localStorage.setItem('lumiere_cart', JSON.stringify(cart));
+      renderCartPage();
+      updateCartBadge();
+    }
+
+    function removeItem(id) {
+      let cart = getCart();
+      const item = cart.find(i => i.id === id);
+      cart = cart.filter(i => i.id !== id);
+      localStorage.setItem('lumiere_cart', JSON.stringify(cart));
+      showToast('Removido', `${item?.name || 'Produto'} removido do carrinho`, 'fa-solid fa-trash');
+      renderCartPage();
+      updateCartBadge();
+    }
+
+    function clearCart() {
+      if (!confirm('Tem certeza que deseja limpar o carrinho?')) return;
+      localStorage.setItem('lumiere_cart', JSON.stringify([]));
+      renderCartPage();
+      updateCartBadge();
+      showToast('Carrinho limpo', 'Todos os itens foram removidos', 'fa-solid fa-trash');
+    }
+
+    function updateSummary() {
+      const cart = getCart();
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const discount = couponApplied ? subtotal * 0.1 : 0;
+      const shipping = freteValue !== null ? freteValue : 0;
+      const total = subtotal - discount + shipping;
+
+      document.getElementById('summary-subtotal').textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+      document.getElementById('summary-discount').textContent = discount > 0 ? `– R$ ${discount.toFixed(2).replace('.', ',')}` : '– R$ 0,00';
+      document.getElementById('summary-shipping').textContent =
+        freteValue === 0 ? 'Grátis ✓' :
+          freteValue !== null ? `R$ ${freteValue.toFixed(2).replace('.', ',')}` :
+            subtotal >= 150 ? 'Grátis ✓' : 'Calcular';
+
+      if (subtotal >= 150 && freteValue === null) freteValue = 0;
+      document.getElementById('summary-total').textContent = `R$ ${(subtotal - discount + (freteValue || 0)).toFixed(2).replace('.', ',')}`;
+      document.getElementById('modal-total').textContent = `R$ ${(subtotal - discount + (freteValue || 0)).toFixed(2).replace('.', ',')}`;
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById('coupon-input').value.trim().toUpperCase();
+      const msg = document.getElementById('coupon-msg');
+      if (code === 'LUMIERE10' || code === 'DESCONTO10') {
+        couponApplied = true;
+        msg.innerHTML = '<i class="fa-solid fa-check" style="color:#4CAF50;"></i> Cupom aplicado! 10% de desconto.';
+        msg.style.color = '#4CAF50';
+        showToast('Cupom aplicado!', '10% de desconto adicionado', 'fa-solid fa-tag');
+        updateSummary();
+      } else if (code === '') {
+        msg.textContent = 'Digite um código de cupom.';
+        msg.style.color = 'var(--gray-500)';
+      } else {
+        msg.innerHTML = '<i class="fa-solid fa-xmark" style="color:#ef5350;"></i> Cupom inválido ou expirado.';
+        msg.style.color = '#ef5350';
+        couponApplied = false;
+        updateSummary();
+      }
+    }
+
+    function calcFrete() {
+      const cep = document.getElementById('cep-input').value.replace(/\D/g, '');
+      if (cep.length < 8) {
+        showToast('CEP inválido', 'Por favor, insira um CEP válido', 'fa-solid fa-triangle-exclamation');
+        return;
+      }
+      const cart = getCart();
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      freteValue = subtotal >= 150 ? 0 : 15.90;
+      document.getElementById('summary-shipping').textContent =
+        freteValue === 0 ? 'Grátis ✓' : `R$ ${freteValue.toFixed(2).replace('.', ',')}`;
+      showToast('Frete calculado', freteValue === 0 ? 'Frete grátis para este CEP!' : `R$ ${freteValue.toFixed(2).replace('.', ',')}`, 'fa-solid fa-truck');
+      updateSummary();
+    }
+
+    // CEP mask
+    document.getElementById('cep-input').addEventListener('input', function () {
+      let v = this.value.replace(/\D/g, '');
+      if (v.length > 5) v = v.slice(0, 5) + '-' + v.slice(5, 8);
+      this.value = v;
+    });
+
+    function checkout() {
+      const cart = getCart();
+      if (cart.length === 0) return;
+      updateSummary();
+      document.getElementById('checkout-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('checkout-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function confirmPurchase() {
+      localStorage.setItem('lumiere_cart', JSON.stringify([]));
+      updateCartBadge();
+      closeModal();
+      document.getElementById('cart-layout').style.display = 'none';
+      document.getElementById('cart-empty').style.display = 'none';
+
+      const main = document.querySelector('.cart-main .container');
+      main.innerHTML = `
+        <div class="order-success">
+          <div class="success-icon" aria-hidden="true"><i class="fa-solid fa-circle-check"></i></div>
+          <h2>Pedido realizado com sucesso! 🎉</h2>
+          <p>Obrigada por comprar na <strong>Lumière Hair & Beauty</strong>. Você receberá um e-mail de confirmação em breve.</p>
+          <div class="success-actions">
+            <a href="products.html" class="btn-primary" id="continue-btn">
+              <i class="fa-solid fa-sparkles"></i> Continuar Comprando
+            </a>
+            <a href="index.html" class="btn-secondary" id="go-home-btn">Voltar ao início</a>
+          </div>
+        </div>
+      `;
+    }
+
+    renderCartPage();
+  </script>
+</body>
+
+</html>

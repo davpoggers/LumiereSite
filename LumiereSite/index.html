@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Lumière Hair & Beauty – Cosméticos originais com preço acessível. Cuide do seu cabelo com os melhores produtos da Lola Cosmetics.">
+  <title>Lumière Hair & Beauty | Cosméticos Originais</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
+    <a href="index.html" aria-label="Ir para a página inicial">
+      <img src="logo.png" alt="Lumière Hair & Beauty" class="navbar-logo">
+    </a>
+    <ul class="navbar-links" role="list">
+      <li><a href="index.html" class="active">Início</a></li>
+      <li><a href="products.html">Produtos</a></li>
+      <li><a href="index.html#sobre">Sobre</a></li>
+      <li><a href="index.html#contato">Contato</a></li>
+    </ul>
+    <div class="navbar-actions">
+      <button class="cart-btn" id="cart-nav-btn" aria-label="Ver carrinho" onclick="window.location.href='cart.html'">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Menu mobile">
+    <a href="index.html">Início</a>
+    <a href="products.html">Produtos</a>
+    <a href="index.html#sobre">Sobre</a>
+    <a href="index.html#contato">Contato</a>
+    <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i> Carrinho</a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="hero" aria-label="Seção principal">
+    <div class="hero-bg">
+      <img src="hero_banner.png" alt="Mulher com cabelo bonito" class="hero-img">
+      <div class="hero-overlay"></div>
+      <div class="hero-particles" aria-hidden="true">
+        <div class="particle p1"></div>
+        <div class="particle p2"></div>
+        <div class="particle p3"></div>
+        <div class="particle p4"></div>
+        <div class="particle p5"></div>
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="section-tag"><i class="fa-solid fa-star"></i> Produtos Originais</span>
+        <h1 class="hero-title">
+          Brilhe como
+          <span class="hero-highlight">você merece</span>
+        </h1>
+        <p class="hero-subtitle">
+          Cosméticos originais com preços acessíveis para todos os tipos de cabelo.
+          Qualidade premium que transforma sua rotina de beleza.
+        </p>
+        <div class="hero-actions">
+          <a href="products.html" class="btn-primary" id="hero-cta">
+            <i class="fa-solid fa-sparkles"></i> Explore os Produtos
+          </a>
+          <a href="#sobre" class="btn-secondary" id="hero-about">
+            Sobre Nós
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">500+</span>
+            <span class="stat-label">Unidades vendidas</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">20%</span>
+            <span class="stat-label">Desconto em kits</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Originais</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announce-bar" role="banner" aria-label="Promoção">
+    <div class="announce-inner">
+      <i class="fa-solid fa-tag"></i>
+      <span>Kits completos com <strong>20% de desconto</strong> — aproveite!</span>
+      <i class="fa-solid fa-circle" style="font-size:0.3rem;"></i>
+      <span>Frete grátis em compras acima de R$ 150</span>
+      <i class="fa-solid fa-circle" style="font-size:0.3rem;"></i>
+      <span>Produtos 100% originais garantidos</span>
+    </div>
+  </div>
+
+  <!-- SOBRE / DIFERENCIAIS -->
+  <section class="section-sobre" id="sobre" aria-labelledby="sobre-title">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-text">
+          <span class="section-tag"><i class="fa-solid fa-heart"></i> Nossa Missão</span>
+          <h2 class="section-title" id="sobre-title">
+            Beleza para <strong>todos</strong> os públicos
+          </h2>
+          <p class="section-subtitle">
+            Na Lumière Hair & Beauty, nossa missão é tornar a beleza acessível.
+            Trabalhamos com marcas de renome como Lola Cosmetics para oferecer
+            produtos originais com preços justos.
+          </p>
+          <div class="sobre-pilares">
+            <div class="pilar">
+              <div class="pilar-icon"><i class="fa-solid fa-shield-check"></i></div>
+              <div>
+                <h3 class="pilar-title">100% Originais</h3>
+                <p class="pilar-desc">Todos os produtos são autênticos e certificados pelas marcas parceiras.</p>
+              </div>
+            </div>
+            <div class="pilar">
+              <div class="pilar-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+              <div>
+                <h3 class="pilar-title">Impacto Social</h3>
+                <p class="pilar-desc">Doamos R$ 200 mil para abrigos infantis e de animais.</p>
+              </div>
+            </div>
+            <div class="pilar">
+              <div class="pilar-icon"><i class="fa-solid fa-tags"></i></div>
+              <div>
+                <h3 class="pilar-title">Melhor Preço</h3>
+                <p class="pilar-desc">Produtos originais das melhores marcas pelo menor preço do mercado.</p>
+              </div>
+            </div>
+          </div>
+          <a href="products.html" class="btn-primary" style="margin-top: 8px;" id="sobre-cta">
+            <i class="fa-solid fa-arrow-right"></i> Ver Nossos Produtos
+          </a>
+        </div>
+        <div class="sobre-visual">
+          <div class="sobre-card-main">
+            <img src="kit_promocional.png" alt="Kit de produtos Lumière">
+          </div>
+          <div class="sobre-badge-top">
+            <i class="fa-solid fa-award"></i>
+            <div>
+              <strong>+500</strong>
+              <span>clientes satisfeitas</span>
+            </div>
+          </div>
+          <div class="sobre-badge-bottom">
+            <i class="fa-solid fa-leaf"></i>
+            <div>
+              <strong>Cruelty Free</strong>
+              <span>sem testes em animais</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMAS QUE RESOLVEMOS -->
+  <section class="section-solutions" aria-labelledby="solutions-title">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Soluções</span>
+        <h2 class="section-title" id="solutions-title">Seu cabelo fala, <strong>nós ouvimos</strong></h2>
+        <p class="section-subtitle">Encontre o tratamento certo para cada necessidade do seu fio.</p>
+      </div>
+      <div class="solutions-grid">
+        <div class="solution-card" id="sol-cacho">
+          <div class="sol-icon-wrap">
+            <i class="fa-solid fa-droplet"></i>
+          </div>
+          <h3>Porosidade & Ressecamento</h3>
+          <p>Seu cabelo sofre com fios secos e porosos? A linha <strong>Meu Cacho Minha Vida</strong> da Lola é a
+            solução perfeita para hidratar e definir seus cachos.</p>
+          <a href="product.html?linha=cacho" class="sol-link">
+            Ver linha <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="solution-card featured" id="sol-kit">
+          <div class="sol-badge"><i class="fa-solid fa-fire"></i> Mais Popular</div>
+          <div class="sol-icon-wrap">
+            <i class="fa-solid fa-box-open"></i>
+          </div>
+          <h3>Kits Completos com 20% OFF</h3>
+          <p>Monte seu kit ideal com shampoo, condicionador e máscara. Economize 20% comprando em conjunto e cuide do
+            seu cabelo de forma completa.</p>
+          <a href="products.html#kits" class="sol-link">
+            Ver kits <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="solution-card" id="sol-danos">
+          <div class="sol-icon-wrap">
+            <i class="fa-solid fa-flask"></i>
+          </div>
+          <h3>Cabelo Pós-Química</h3>
+          <p>Passou por coloração, alisamento ou permanente? A linha <strong>Danos Vorazes</strong> da Lola repara e
+            reconstrói os fios de dentro para fora.</p>
+          <a href="product.html?linha=danos" class="sol-link">
+            Ver linha <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS EM DESTAQUE -->
+  <section class="section-featured" id="destaque" aria-labelledby="featured-title">
+    <div class="container">
+      <div class="featured-header">
+        <div>
+          <span class="section-tag"><i class="fa-solid fa-star"></i> Destaques</span>
+          <h2 class="section-title" id="featured-title">Mais <strong>vendidos</strong></h2>
+        </div>
+        <a href="products.html" class="btn-secondary" id="all-products-link" style="flex-shrink:0;">
+          Ver todos <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="products-grid" id="featured-grid">
+        <!-- Produto 1 -->
+        <article class="product-card" id="card-p1">
+          <span class="product-card-badge badge-promo">20% OFF</span>
+          <div style="overflow:hidden;">
+            <img src="produto_cacho.png" alt="Kit Meu Cacho Minha Vida - Lola Cosmetics" class="product-card-img">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-brand">Lola Cosmetics</p>
+            <h3 class="product-card-name">Meu Cacho Minha Vida</h3>
+            <p class="product-card-desc">Shampoo + Condicionador + Máscara para cabelos cacheados e ondulados.</p>
+            <div class="product-card-footer">
+              <div class="price-group">
+                <span class="price-original">R$ 189,90</span>
+                <span class="price-current">R$ 151,90</span>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <a href="product.html?id=1" class="btn-icon" title="Ver detalhes do produto"
+                  aria-label="Ver detalhes do produto Meu Cacho Minha Vida">
+                  <i class="fa-solid fa-eye"></i>
+                </a>
+                <button class="btn-icon" title="Adicionar ao carrinho"
+                  aria-label="Adicionar Meu Cacho Minha Vida ao carrinho"
+                  onclick="addToCart({id:1, name:'Meu Cacho Minha Vida', brand:'Lola Cosmetics', price:151.90, img:'produto_cacho.png'})">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 2 -->
+        <article class="product-card" id="card-p2">
+          <span class="product-card-badge badge-promo">20% OFF</span>
+          <div style="overflow:hidden;">
+            <img src="produto_danos.png" alt="Kit Danos Vorazes - Lola Cosmetics" class="product-card-img">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-brand">Lola Cosmetics</p>
+            <h3 class="product-card-name">Danos Vorazes</h3>
+            <p class="product-card-desc">Tratamento pós-química intensivo que reconstrói e repara os fios danificados.
+            </p>
+            <div class="product-card-footer">
+              <div class="price-group">
+                <span class="price-original">R$ 199,90</span>
+                <span class="price-current">R$ 159,90</span>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <a href="product.html?id=2" class="btn-icon" title="Ver detalhes"
+                  aria-label="Ver detalhes do produto Danos Vorazes">
+                  <i class="fa-solid fa-eye"></i>
+                </a>
+                <button class="btn-icon" title="Adicionar ao carrinho" aria-label="Adicionar Danos Vorazes ao carrinho"
+                  onclick="addToCart({id:2, name:'Danos Vorazes', brand:'Lola Cosmetics', price:159.90, img:'produto_danos.png'})">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Produto 3 -->
+        <article class="product-card" id="card-p3">
+          <span class="product-card-badge badge-new">Novo</span>
+          <div style="overflow:hidden;">
+            <img src="kit_promocional.png" alt="Kit Completo Lumière" class="product-card-img">
+          </div>
+          <div class="product-card-body">
+            <p class="product-card-brand">Lumière Exclusivo</p>
+            <h3 class="product-card-name">Kit Lumière Premium</h3>
+            <p class="product-card-desc">Kit curado pela nossa equipe com os melhores produtos para sua rotina completa.
+            </p>
+            <div class="product-card-footer">
+              <div class="price-group">
+                <span class="price-original">R$ 349,90</span>
+                <span class="price-current">R$ 279,90</span>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <a href="product.html?id=3" class="btn-icon" title="Ver detalhes"
+                  aria-label="Ver detalhes do Kit Lumière Premium">
+                  <i class="fa-solid fa-eye"></i>
+                </a>
+                <button class="btn-icon" title="Adicionar ao carrinho"
+                  aria-label="Adicionar Kit Lumière Premium ao carrinho"
+                  onclick="addToCart({id:3, name:'Kit Lumière Premium', brand:'Lumière Exclusivo', price:279.90, img:'kit_promocional.png'})">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER PROMOÇÃO -->
+  <section class="section-promo-banner" aria-label="Promoção especial">
+    <div class="promo-banner-content">
+      <div class="promo-banner-text">
+        <span class="promo-banner-tag">⭐ Promoção Especial</span>
+        <h2>Kits completos com <span>20% de desconto</span></h2>
+        <p>Monte o kit ideal para o seu cabelo e economize. Produtos originais com preços que cabem no bolso.</p>
+        <a href="products.html#kits" class="btn-primary" id="promo-banner-cta">
+          <i class="fa-solid fa-fire"></i> Aproveitar Desconto
+        </a>
+      </div>
+      <div class="promo-banner-visual" aria-hidden="true">
+        <div class="promo-circle c1"></div>
+        <div class="promo-circle c2"></div>
+        <div class="promo-big-num">20%</div>
+        <div class="promo-off-text">OFF</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section-depoimentos" aria-labelledby="dep-title">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 48px;">
+        <span class="section-tag"><i class="fa-solid fa-comments"></i> Depoimentos</span>
+        <h2 class="section-title" id="dep-title">O que nossas <strong>clientes dizem</strong></h2>
+      </div>
+      <div class="depoimentos-grid">
+        <article class="dep-card" id="dep1">
+          <div class="dep-stars" role="img" aria-label="5 estrelas">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="dep-text">"Meu cabelo ressecado nunca ficou tão hidratado! A linha Meu Cacho Minha Vida é incrível.
+            Adoro que os produtos são originais com um preço justo."</p>
+          <div class="dep-author">
+            <div class="dep-avatar" aria-hidden="true">A</div>
+            <div>
+              <strong>Kimberlly de Deus</strong>
+              <span>Tipo 3C</span>
+            </div>
+          </div>
+        </article>
+        <article class="dep-card featured" id="dep2">
+          <div class="dep-stars" role="img" aria-label="5 estrelas">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="dep-text">"Depois da coloração meu cabelo estava um destroço. Os Danos Vorazes salvaram meus fios!
+            Em apenas 3 semanas já vi a diferença. Indico demais a Lumière!"</p>
+          <div class="dep-author">
+            <div class="dep-avatar" aria-hidden="true">C</div>
+            <div>
+              <strong>Carolina Mendes</strong>
+              <span>Loira platinada</span>
+            </div>
+          </div>
+        </article>
+        <article class="dep-card" id="dep3">
+          <div class="dep-stars" role="img" aria-label="5 estrelas">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="dep-text">"Comprei o kit completo com 20% de desconto e veio rapidinho. Produtos véia de fato, sem
+            falsificação. Melhor loja de cosméticos que já comprei!"</p>
+          <div class="dep-author">
+            <div class="dep-avatar" aria-hidden="true">J</div>
+            <div>
+              <strong>Juliana Rocha</strong>
+              <span>Tipo 2B</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- AÇÃO SOCIAL -->
+  <section class="section-social-action" id="social" aria-labelledby="social-title">
+    <div class="container">
+      <div class="social-action-inner">
+        <div class="social-action-icon" aria-hidden="true">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <div class="social-action-text">
+          <h2 id="social-title">Beleza que <strong>transforma vidas</strong></h2>
+          <p>Na Lumière acreditamos que o lucro deve retornar à sociedade. Por isso já doamos <strong>R$ 200
+              mil</strong> para instituições de abrigo de crianças e animais. Cada compra sua contribui com essa causa.
+          </p>
+        </div>
+        <div class="social-action-nums">
+          <div class="action-num">
+            <strong>R$ 200mil</strong>
+            <span>já doados</span>
+          </div>
+          <div class="action-num">
+            <strong>Crianças</strong>
+            <span>e animais beneficiados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER / CONTATO -->
+  <section class="section-newsletter" id="contato" aria-labelledby="newsletter-title">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="newsletter-text">
+          <span class="section-tag"><i class="fa-solid fa-envelope"></i> Newsletter</span>
+          <h2 class="section-title" id="newsletter-title">Fique por dentro das <strong>novidades</strong></h2>
+          <p class="section-subtitle">Receba promoções, lançamentos e dicas de cuidado capilar direto no seu e-mail.</p>
+        </div>
+        <form class="newsletter-form" id="newsletter-form" onsubmit="handleNewsletter(event)" novalidate>
+          <div class="newsletter-input-group">
+            <input type="email" id="newsletter-email" placeholder="Seu melhor e-mail" required
+              aria-label="Seu e-mail para newsletter">
+            <button type="submit" class="btn-primary" id="newsletter-submit">
+              <i class="fa-solid fa-paper-plane"></i> Inscrever
+            </button>
+          </div>
+          <p class="newsletter-disclaimer">Sem spam. Cancele quando quiser.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Lumière Hair & Beauty" class="footer-brand-logo">
+        <p>Cosméticos originais com preços acessíveis para todos os públicos. Nossa missão é fazer a beleza chegar a
+          todos.</p>
+        <div class="footer-social" role="list" aria-label="Redes sociais">
+          <a href="#" aria-label="Instagram" role="listitem"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook" role="listitem"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok" role="listitem"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="WhatsApp" role="listitem"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Navegação</p>
+        <ul class="footer-links" role="list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="products.html">Produtos</a></li>
+          <li><a href="index.html#sobre">Sobre Nós</a></li>
+          <li><a href="index.html#social">Ação Social</a></li>
+          <li><a href="cart.html">Carrinho</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Produtos</p>
+        <ul class="footer-links" role="list">
+          <li><a href="product.html?linha=cacho">Meu Cacho Minha Vida</a></li>
+          <li><a href="product.html?linha=danos">Danos Vorazes</a></li>
+          <li><a href="products.html#kits">Kits Completos</a></li>
+          <li><a href="products.html">Todos os Produtos</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Atendimento</p>
+        <ul class="footer-links" role="list">
+          <li><a href="mailto:contato@lumierehair.com.br"><i class="fa-solid fa-envelope" style="width:16px;"></i>
+              contato@lumierehair.com.br</a></li>
+          <li><a href="tel:+5511999999999"><i class="fa-brands fa-whatsapp" style="width:16px;"></i> (11) 99999-9999</a>
+          </li>
+          <li style="color: var(--gray-600, #555); font-size: 0.88rem; margin-top: 8px;"><i class="fa-solid fa-clock"
+              style="width:16px;"></i> Seg–Sex: 9h–18h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lumière Hair & Beauty. Todos os direitos reservados.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Trocas & Devoluções</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container" role="alert" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
