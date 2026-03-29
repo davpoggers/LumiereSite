@@ -7,10 +7,10 @@
   <meta name="description"
     content="Lumière Hair & Beauty – Cosméticos originais com preço acessível. Cuide do seu cabelo com os melhores produtos da Lola Cosmetics.">
   <title>Lumière Hair & Beauty | Cosméticos Originais</title>
-  <link rel="icon" type="image/x-icon" href="icon.ico">
-  <link rel="shortcut icon" href="icon.ico">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/x-icon" href="assets/icon.ico">
+  <link rel="shortcut icon" href="assets/icon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -19,7 +19,7 @@
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
     <a href="index.html" aria-label="Ir para a página inicial">
-      <img src="logo.png" alt="Lumière Hair & Beauty" class="navbar-logo">
+      <img src="assets/logo.png" alt="Lumière Hair & Beauty" class="navbar-logo">
     </a>
     <ul class="navbar-links" role="list">
       <li><a href="index.html" class="active">Início</a></li>
@@ -50,7 +50,7 @@
   <!-- HERO SECTION -->
   <section class="hero-section" id="hero" aria-label="Seção principal">
     <div class="hero-bg">
-      <img src="hero_banner.png" alt="Mulher com cabelo bonito" class="hero-img">
+      <img src="assets/hero_banner.png" alt="Mulher com cabelo bonito" class="hero-img">
       <div class="hero-overlay"></div>
       <div class="hero-particles" aria-hidden="true">
         <div class="particle p1"></div>
@@ -131,7 +131,7 @@
           <div class="sobre-pilares">
             <div class="pilar">
               <div class="pilar-icon pilar-icon--img">
-                <img src="logo.png" alt="Produtos originais certificados" class="pilar-logo-img">
+                <img src="assets/logo.png" alt="Produtos originais certificados" class="pilar-logo-img">
               </div>
               <div>
                 <h3 class="pilar-title">100% Originais</h3>
@@ -159,7 +159,7 @@
         </div>
         <div class="sobre-visual">
           <div class="sobre-card-main">
-            <img src="kit_promocional.png" alt="Kit de produtos Lumière">
+            <img src="assets/kit_promocional.png" alt="Kit de produtos Lumière">
           </div>
           <div class="sobre-badge-top">
             <i class="fa-solid fa-award"></i>
@@ -244,7 +244,7 @@
         <article class="product-card" id="card-p1">
           <span class="product-card-badge badge-promo">20% OFF</span>
           <div style="overflow:hidden;">
-            <img src="produto_cacho.png" alt="Kit Meu Cacho Minha Vida - Lola Cosmetics" class="product-card-img">
+            <img src="assets/produto_cacho.png" alt="Kit Meu Cacho Minha Vida - Lola Cosmetics" class="product-card-img">
           </div>
           <div class="product-card-body">
             <p class="product-card-brand">Lola Cosmetics</p>
@@ -262,7 +262,7 @@
                 </a>
                 <button class="btn-icon" title="Adicionar ao carrinho"
                   aria-label="Adicionar Meu Cacho Minha Vida ao carrinho"
-                  onclick="addToCart({id:1, name:'Meu Cacho Minha Vida', brand:'Lola Cosmetics', price:151.90, img:'produto_cacho.png'})">
+                  onclick="addToCart({id:1, name:'Meu Cacho Minha Vida', brand:'Lola Cosmetics', price:151.90, img:'assets/produto_cacho.png'})">
                   <i class="fa-solid fa-bag-shopping"></i>
                 </button>
               </div>
@@ -274,7 +274,7 @@
         <article class="product-card" id="card-p2">
           <span class="product-card-badge badge-promo">20% OFF</span>
           <div style="overflow:hidden;">
-            <img src="produto_danos.png" alt="Kit Danos Vorazes - Lola Cosmetics" class="product-card-img">
+            <img src="assets/produto_danos.png" alt="Kit Danos Vorazes - Lola Cosmetics" class="product-card-img">
           </div>
           <div class="product-card-body">
             <p class="product-card-brand">Lola Cosmetics</p>
@@ -292,7 +292,7 @@
                   <i class="fa-solid fa-eye"></i>
                 </a>
                 <button class="btn-icon" title="Adicionar ao carrinho" aria-label="Adicionar Danos Vorazes ao carrinho"
-                  onclick="addToCart({id:2, name:'Danos Vorazes', brand:'Lola Cosmetics', price:159.90, img:'produto_danos.png'})">
+                  onclick="addToCart({id:2, name:'Danos Vorazes', brand:'Lola Cosmetics', price:159.90, img:'assets/produto_danos.png'})">
                   <i class="fa-solid fa-bag-shopping"></i>
                 </button>
               </div>
@@ -304,7 +304,7 @@
         <article class="product-card" id="card-p3">
           <span class="product-card-badge badge-new">Novo</span>
           <div style="overflow:hidden;">
-            <img src="kit_promocional.png" alt="Kit Completo Lumière" class="product-card-img">
+            <img src="assets/kit_promocional.png" alt="Kit Completo Lumière" class="product-card-img">
           </div>
           <div class="product-card-body">
             <p class="product-card-brand">Lumière Exclusivo</p>
@@ -323,7 +323,7 @@
                 </a>
                 <button class="btn-icon" title="Adicionar ao carrinho"
                   aria-label="Adicionar Kit Lumière Premium ao carrinho"
-                  onclick="addToCart({id:3, name:'Kit Lumière Premium', brand:'Lumière Exclusivo', price:279.90, img:'kit_promocional.png'})">
+                  onclick="addToCart({id:3, name:'Kit Lumière Premium', brand:'Lumière Exclusivo', price:279.90, img:'assets/kit_promocional.png'})">
                   <i class="fa-solid fa-bag-shopping"></i>
                 </button>
               </div>
@@ -465,7 +465,7 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="logo.png" alt="Lumière Hair & Beauty" class="footer-brand-logo">
+        <img src="assets/logo.png" alt="Lumière Hair & Beauty" class="footer-brand-logo">
         <p>Cosméticos originais com preços acessíveis para todos os públicos. Nossa missão é fazer a beleza chegar a
           todos.</p>
         <div class="footer-social" role="list" aria-label="Redes sociais">
@@ -519,7 +519,7 @@
   <!-- TOAST CONTAINER -->
   <div id="toast-container" role="alert" aria-live="polite"></div>
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
